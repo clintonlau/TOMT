@@ -1,4 +1,4 @@
-# Recipe Recommender System
+# TOMT (tip of my tongue)
 I find myself running through a number of recipe sites to find something new to cook _depending on my mood_. Existing recipe recommendation systems (RSS) out don't really address my needs. Some recommend based on ingredient list, some straight up just suggest a few based solely on historic likes and dislikes. I want an application that recommends me recipes from _my trusted sources_ and lets me have better control over the input filters. 
 
 ## Scope
