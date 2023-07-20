@@ -19,7 +19,7 @@ class NYTC():
         )['json-ld'][0]
         self.type = self.data['@type'][0]
 
-    def raw_data(self):
+    def raw_schema(self):
         try:
             return self.data
         except:
