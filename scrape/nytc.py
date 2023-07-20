@@ -19,6 +19,12 @@ class NYTC():
         )['json-ld'][0]
         self.type = self.data['@type'][0]
 
+    def raw_data(self):
+        try:
+            return self.data
+        except:
+            return np.nan
+
     def recipe_name(self):
         try:
             return self.data['name']
