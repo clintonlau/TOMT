@@ -14,6 +14,7 @@ Create a system that recommends recipes based on user filters (e.g., by meal, by
 - [ ] Data exploration
 - [ ] Build an MVP
 - [ ] Refine scope and data collection
+- [ ] Visualize feature vector embeddings in 2D space
 - [ ] Acquire recipe images and increase feature set (e.g., cooking time)
 - [ ] Model selection
 - [ ] Model development
