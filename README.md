@@ -60,6 +60,8 @@ Data wrangling:
 
 Model:
 - scikit-learn, [lightfm](https://github.com/lyst/lightfm), [spotlight](https://github.com/maciejkula/spotlight)
+- Content-based filtering (cosine similarity)
+- Collaborative-based filtering (matrix factorization)
 
 Web framework:
 - flask
