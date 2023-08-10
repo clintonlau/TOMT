@@ -11,9 +11,10 @@ Create a system that recommends recipes based on user filters (e.g., by meal, by
 - [x] Literature review on recommender systems
 - [x] Outline project scope
 - [x] Scrape recipes from seriouseats.com for prototyping
-- [ ] Data exploration on serious eats recipes (find trends, data distributions of features, etc.)
-- [ ] In-depth data cleaning
+- [ ] Data exploration
+- [ ] Build an MVP
 - [ ] Refine scope and data collection
+- [ ] Acquire recipe images and increase feature set (e.g., cooking time)
 - [ ] Model selection
 - [ ] Model development
 - [ ] Error analysis -> data and model tuning
