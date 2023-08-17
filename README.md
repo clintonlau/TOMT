@@ -2,7 +2,7 @@
 `TOMT` stands for "tip of my tongue". I am building this system because I often find myself running through a number of recipe sites trying to find something new to cook _depending on my mood_. Existing recipe recommendation systems (RSS) out don't really address my needs. Some recommend based on ingredient list, some even just suggest based solely on historic likes and dislikes. I want TOMT to recommend me recipes from _my trusted sources_ and learn my palette over time.
 
 ## Scope
-Create a system that recommends recipes based on user filters (e.g., by meal, by cuisine, by method, by diet), profile, similar users. It should have a centralized interface that pulls data from my go-to sources and allows me to narrow down my choices to suggest a few recipes (~6) for me to choose from. I am picky about the quality of the recipes, so data collection is done in-house for greater control over where they are from and what features to include. The system should learn the flavour profile of the user such that suggestions get better over time (measured by like-dislike ratio over time). To do this, a rating feature needs to be implemented. 
+Create a system that recommends recipes based on user filters (e.g., by meal, by cuisine, by method, by diet), profile, similar users. It should have a centralized interface that pulls data from my go-to sources and allows me to narrow down my choices to suggest a few recipes (~6)  for me to choose from. I am picky about the quality of the recipes, so data collection is done in-house for greater control over where they are from and what features to include. The system should learn the flavour profile of the user such that suggestions get better over time (measured by like-dislike ratio over time). To do this, a rating feature needs to be implemented. 
 
 ## Project Cycle Overview
 ![Project cycle overview.](./image/recipe-app-pipeline.png)
@@ -11,7 +11,7 @@ Create a system that recommends recipes based on user filters (e.g., by meal, by
 - [x] Literature review on recommender systems
 - [x] Outline project scope
 - [x] Scrape recipes from seriouseats.com for prototyping
-- [ ] Data exploration
+- [x] Data exploration
 - [ ] Build an MVP
 - [ ] Refine scope and data collection
 - [ ] Visualize feature vector embeddings in 2D space
