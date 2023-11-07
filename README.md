@@ -7,23 +7,6 @@ Create a system that recommends recipes based on user filters (e.g., by meal, by
 ## Project Cycle Overview
 ![Project cycle overview.](./image/recipe-app-pipeline.png)
 
-## To-do
-- [x] Literature review on recommender systems
-- [x] Outline project scope
-- [x] Scrape recipes from seriouseats.com for prototyping
-- [x] Data exploration
-- [ ] Build an MVP
-- [ ] Refine scope and data collection
-- [ ] Visualize feature vector embeddings in 2D space
-- [ ] Acquire recipe images and increase feature set (e.g., cooking time)
-- [ ] Model selection
-- [ ] Model development
-- [ ] Error analysis -> data and model tuning
-- [ ] Deploy model using flask
-- [ ] Monitor deployment
-- [ ] Refine pipeline
-
-
 ## Data
 I have a few tried-and-true recipe sites that I often visit. I want control over where I pull my data from, what data to pull from each recipe and am scraping data my own data.
 
