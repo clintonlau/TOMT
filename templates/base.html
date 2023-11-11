@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Recipe Recommender</title>
+    <title>{% block title %} {% endblock %} - TOMT</title>
     <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
@@ -11,20 +11,13 @@
     
 </head>
 <body style="background: #cdc00b;">
-    <div class="login">
-       <h1>TOMT Recipe Recommender &#128069;</h1>
-   
-        <!-- Main Input For Receiving Query to our ML -->
-       <form action="{{ url_for('predict')}}"method="post">
-           <input type="text" name="ingredients" placeholder="Enter ingredients" required="required" />
-           <button type="submit" class="btn btn-primary btn-block btn-large">Give me some inspirations</button>
-       </form>
-   
-      <br>
-      <br>
-      <!-- {{ prediction_text }} -->
-      <!-- {{<a href="{{ prediction_text }}">Link</a>}} -->
-   
+    <nav>
+        <a href="#">TOMT</a>
+        <a href="#">About</a>
+    </nav>
+    <hr>
+    <div class="content">
+        {% block content %} {% endblock %}
     </div>
 </body>
 </html>

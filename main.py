@@ -14,45 +14,22 @@ def home():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-
-    # get user query as a string
-    json_ = request.json
-    print(json_)
-    query = ...
+    # get user query as a string, format of query should be comma separated ingredient list
+    query = request.form.get('ingredients')
     query_encodings = model.transform([query])
     cos_sim_scores = list(map(lambda x: cosine_similarity(query_encodings, x), train_encodings))
-    pred_df = get_recommendations(5, cos_sim_scores)
-    return render_template()
+    prediction_df = get_recommendations(5, cos_sim_scores)
+    # return render_template('index.html', recipe_url=prediction_df.loc[0]['url'], recipe_name=prediction_df.loc[0]['recipe_name'])
+    return render_template(
+        'index.html', 
+        prediction_text=f"<a href={prediction_df.loc[0]['url']}>Link</a>"
+    )
 
 
 def get_recommendations(N, scores):
-    test_ingredients = 'masa harina'
-
-    # use our pretrained tfidf model to encode our input ingredients
-    ingredients_tfidf = model.transform([test_ingredients])
-
-    # calculate cosine similarity between actual recipe ingreds and test ingreds
-    cos_sim = map(lambda x: cosine_similarity(ingredients_tfidf, x), train_df)
-    scores = list(cos_sim)
-
-    # load in recipe dataset
-    df_recipes = nytc_features # pd.read_csv(config.PARSED_PATH)
     # order the scores with and filter to get the highest N scores
     top = sorted(range(len(scores)), key=lambda i: scores[i], reverse=True)[:N]
-    # create dataframe to load in recommendations
-    recommendation = pd.DataFrame(columns = ['recipe', 'ingredients', 'score', 'cuisine'])
-    count = 0
-    for i in top:
-        recommendation.at[count, 'recipe'] = (df_recipes['recipe_name'][i])
-        
-        recommendation.at[count, 'ingredients'] = (df_recipes['ingredient_parsed'][i])
-        
-        recommendation.at[count, 'cuisine'] = df_recipes['cuisine'][i]
-        recommendation.at[count, 'score'] = "{:.3f}".format(float(scores[i]))
-        
-        count += 1
-    return recommendation
-
+    return train_recipes.iloc[top].reset_index(drop=True).copy()
 
 
 if __name__ == '__main__':
@@ -61,6 +38,6 @@ if __name__ == '__main__':
     print('Model loaded...')
     train_encodings = joblib.load(ENCODING_FILE_NAME)
     print('Training data loaded...')
-    train_df = pd.read_pickle('./data/nytc_training.pkl')
+    train_recipes = pd.read_pickle('./data/nytc_training.pkl')
 
     app.run(debug=True)
