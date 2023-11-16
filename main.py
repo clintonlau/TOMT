@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, render_template, abort
 import joblib 
 import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
@@ -12,14 +12,21 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 @app.route('/predict', methods=['POST'])
 def predict():
+    #TODO: render a new template/web page to display information of the 5 predictions
+
     # get user query as a string, format of query should be comma separated ingredient list
     query = request.form.get('ingredients')
     query_encodings = model.transform([query])
     cos_sim_scores = list(map(lambda x: cosine_similarity(query_encodings, x), train_encodings))
     prediction_df = get_recommendations(5, cos_sim_scores)
-    # return render_template('index.html', recipe_url=prediction_df.loc[0]['url'], recipe_name=prediction_df.loc[0]['recipe_name'])
+
+
     return render_template(
         'index.html', 
         prediction_text=f"<a href={prediction_df.loc[0]['url']}>Link</a>"

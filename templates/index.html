@@ -1,10 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <h1>{% block title %} What do you feel like making right now? {% endblock %}</h1>
 
-    <h1>TOMT Recipe Recommender &#128069;</h1>
-
-    <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
         <input type="text" name="ingredients" placeholder="Enter ingredients" required="required" />
         <button type="submit" class="btn btn-primary btn-block btn-large">Give me some inspirations</button>
@@ -12,5 +10,7 @@
 
     <br>
     <br>
+
+    {{prediction_text | safe}}
 
 {% endblock %}

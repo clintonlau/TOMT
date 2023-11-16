@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     
 </head>
-<body style="background: #cdc00b;">
-    <!-- <nav>
-        <a href="#">TOMT</a>
-        <a href="#">About</a>
-    </nav> -->
+<body style="background: #f5ea50;">
+    <nav>
+        <a href=" {{ url_for('home') }} ">TOMT &#128069;</a>
+        <a href=" {{ url_for('about') }} ">About</a>
+    </nav>
     <hr>
     <div class="login">
         {% block content %} {% endblock %}
