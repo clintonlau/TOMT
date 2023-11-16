@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} I think you will likes these recipes {% endblock %}</h1>
+
+    <table>
+        {% for pred in predictions %}
+            <tr>
+                <td><a href="{{ pred[1] }}" target="_blank">{{ pred[0] }}</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+
+{% endblock %}

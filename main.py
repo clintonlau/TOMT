@@ -18,7 +18,7 @@ def about():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    #TODO: render a new template/web page to display information of the 5 predictions
+    # TODO: render a new template/web page to display information of the 5 predictions
 
     # get user query as a string, format of query should be comma separated ingredient list
     query = request.form.get('ingredients')
@@ -26,10 +26,12 @@ def predict():
     cos_sim_scores = list(map(lambda x: cosine_similarity(query_encodings, x), train_encodings))
     prediction_df = get_recommendations(5, cos_sim_scores)
 
+    predictions = zip(list(prediction_df['recipe_name']), list(prediction_df['url']))
+    # predictions = zip(['recipe-1'], ['https://cooking.nytimes.com/recipes/1016122-almost-from-scratch-corn-tortillas'])
 
     return render_template(
-        'index.html', 
-        prediction_text=f"<a href={prediction_df.loc[0]['url']}>Link</a>"
+        'result.html', 
+        predictions=predictions
     )
 
 
