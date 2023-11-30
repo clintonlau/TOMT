@@ -11,13 +11,19 @@
     
 </head>
 <body style="background: #f5ea50;">
-    <nav>
-        <a href=" {{ url_for('home') }} ">TOMT &#128069;</a>
-        <a href=" {{ url_for('about') }} ">About</a>
-    </nav>
+    <header>
+        <nav>
+            <a href=" {{ url_for('home') }} ">TOMT &#128069;</a>
+            <a href=" {{ url_for('about') }} ">About</a>
+        </nav>
+    </header>
+    
+
     <hr>
+
     <div class="login">
         {% block content %} {% endblock %}
     </div>
+    
 </body>
 </html>
